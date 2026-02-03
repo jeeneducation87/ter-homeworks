@@ -1,7 +1,8 @@
 ###cloud vars
-variable "token" {
+variable "service_account_key_file" {
   type        = string
-  description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
+  sensitive = true
+  description = "Путь к JSON-файлу сервисного аккаунта (значение задается в personal.auto.tfvars)"
 }
 
 variable "cloud_id" {
@@ -30,3 +31,20 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "vms_ssh_root_key" {
+  type        = string
+  sensitive = true
+  description = "Путь к публичному SSH ключу (значение задается в personal.auto.tfvars)"
+}
+
+variable "vm_family" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+}
+
+variable "vm_platform_id" {
+  type        = string
+  default     = "standard-v1"
+}
+
