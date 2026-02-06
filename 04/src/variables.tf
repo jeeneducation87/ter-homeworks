@@ -40,20 +40,6 @@ variable "vms_ssh_root_key" {
   description = "Путь к публичному SSH ключу (значение задается в personal.auto.tfvars)"
 }
 
-###example vm_web var
-variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "example vm_web_ prefix"
-}
-
-###example vm_db var
-variable "vm_db_name" {
-  type        = string
-  default     = "netology-develop-platform-db"
-  description = "example vm_db_ prefix"
-}
-
 variable "vm_family" {
   type        = string
   default     = "ubuntu-2004-lts"
