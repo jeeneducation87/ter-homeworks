@@ -1,14 +1,3 @@
-# resource "yandex_vpc_network" "develop" {
-#   name = var.vpc_name
-# }
-
-# resource "yandex_vpc_subnet" "develop" {
-#   name           = "${var.vpc_name}-${var.default_zone}"
-#   zone           = var.default_zone
-#   network_id     = yandex_vpc_network.develop.id
-#   v4_cidr_blocks = var.default_cidr
-# }
-
 module "vpc_dev" {
   source   = "./vpc"
   env_name = var.vpc_name
@@ -41,9 +30,9 @@ module "infrastructure_vms" {
   image_family   = var.vm_family
   public_ip      = true
 
-  network_id     = module.vpc_dev.network_id #yandex_vpc_network.develop.id
-  subnet_zones   = [module.vpc_dev.subnet_zone] #[var.default_zone]
-  subnet_ids     = [module.vpc_dev.subnet_id] #[yandex_vpc_subnet.develop.id]
+  network_id     = module.vpc_dev.network_id
+  subnet_zones   = [module.vpc_dev.subnet_zone]
+  subnet_ids     = [module.vpc_dev.subnet_id]
 
   labels = {
     owner   = each.value.owner_vm
