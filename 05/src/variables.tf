@@ -43,5 +43,6 @@ variable "vms_ssh_root_key" {
 variable "vm_family" {
   type        = string
   default     = "ubuntu-2004-lts"
+  description = "Название дистрибутива операционной системы"
 }
 
